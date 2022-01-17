@@ -22,8 +22,6 @@ namespace BinPackTell
             string packetData = Console.ReadLine();
             int[] packets = packetData.Split(',').Select(n => Convert.ToInt32(n)).ToArray();
 
-            packets = ReadFileData();
-
             Console.WriteLine("Number of items: " + packets.Length);
 
             if(packets.Max() > maxBinSize){
@@ -84,10 +82,6 @@ namespace BinPackTell
                 binsUsed++;
             }
             Console.WriteLine("Total bins: " + binsUsed);
-        }
-        static int[] ReadFileData(){
-            string packetData = File.ReadAllText("numbers.txt");
-            return packetData.Split(',').Select(n => Convert.ToInt32(n)).ToArray();
         }
     }
 }
